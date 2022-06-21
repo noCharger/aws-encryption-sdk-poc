@@ -1,0 +1,27 @@
+{
+  "name": "aws-encryption-sdk-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noCharger/aws-encryption-sdk-poc.git"
+  },
+  "keywords": [],
+  "author": "Louis Chu (https://github.com/noCharger)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noCharger/aws-encryption-sdk-poc/issues"
+  },
+  "homepage": "https://github.com/noCharger/aws-encryption-sdk-poc#readme",
+  "dependencies": {
+    "@aws-crypto/client-browser": "^3.1.1",
+    "@aws-crypto/client-node": "^3.1.1",
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  }
+}
