@@ -15,7 +15,7 @@ function createKeyring() {
   const wrappingSuite = RawAesWrappingSuiteIdentifier.AES256_GCM_IV12_TAG16_NO_PADDING;
 
   // Get your plaintext Wrapping key from wherever you store it.
-  const unencryptedWrappingkey = randomBytes(32);
+  const unencryptedWrappingkey = Uint8Array.from([57,46,61,207,207,70,199,19,236,78,120,105,91,236,63,160,49,238,70,155,21,11,128,8,26,62,162,223,189,173,252,16]);
 
   const wrappingKeyName = 'aes-name';
   const wrappingKeyNamespace = 'aes-namespace';
@@ -62,16 +62,16 @@ async function demoGreenCase() {
     console.log("plaintextOutput: ", decrypted.plaintext.toString());  
 }
 
-async function demoRedCase() {
-    console.log("========demoRedCase========")
+async function demoGreenCase2() {
+    console.log("========demoGreenCase2========")
     const keyring1 = createKeyring();
     const { result, messageHeader } = await AESEncrypt(keyring1);
     console.log("encryptedDataKey: ", messageHeader.encryptedDataKeys[0].encryptedDataKey);
 
     const keyring2 = createKeyring();
-    // Expect Error: unencryptedDataKey has not been set
+    // Two different keyring with same Wrapping Key
     const { plaintext } = await decrypt(keyring2, result);
     console.log("plaintextOutput: ", plaintext.toString());  
 }
 
-demoGreenCase().then(() => demoRedCase());
+demoGreenCase().then(() => demoGreenCase2());
